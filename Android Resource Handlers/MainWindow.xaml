@@ -1,0 +1,48 @@
+﻿<Window x:Class="Android_Resource_Handlers.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <DockPanel>
+        <Button DockPanel.Dock="Right" Width="100" IsDefault="True" Name="B_Translate" Click="B_Translate_Click">GO</Button>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ComboBox Name="CB_From" SelectedIndex="0" HorizontalContentAlignment="Center" Grid.Row="0" Grid.Column="0">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} - ({1})">
+                                    <Binding Path="Name"/>
+                                    <Binding Path="Code"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <ComboBox Name="CB_To" SelectedIndex="0" HorizontalContentAlignment="Center" Grid.Row="0" Grid.Column="1">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} - ({1})">
+                                    <Binding Path="Name"/>
+                                    <Binding Path="Code"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBox Name="TBx_Input" Grid.Row="1" Grid.Column="0" TextWrapping="Wrap"/>
+            <TextBlock Name="TBk_Output" Grid.Row="1" Grid.Column="1"/>
+        </Grid>
+    </DockPanel>
+</Window>
